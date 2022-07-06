@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH -J 3           # job name
+#SBATCH -o myMPI.o%j       # output and error file name (%j expands to jobID)
+#SBATCH -p normal          # queue (partition) -- normal, development, etc.
+#SBATCH -N 4               # Total number of nodes requested (16 cores/node)
+#SBATCH -n 64              # total number of mpi tasks requested
+#SBATCH -t 00:10:00        # run time (hh:mm:ss) - 48 hours
+
+date
+ibrun ./pcomcot           # run the MPI executable named a.out
+date
+
